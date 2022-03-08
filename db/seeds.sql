@@ -10,11 +10,11 @@ VALUES
     ("Salesman", 70000, 2),
     ("Teacher", 60000, 3);
 
-INSERT INTO employee (first_name, last_name, job_title, department)
+INSERT INTO employee (first_name, last_name, job_title, department, is_manager, manager)
 VALUES
-    ("John", "Smith", 1, 1),
-    ("Benjamin", "Franklin", 2, 2),
-    ("Jason", "Bourne", 3, 3);
+    ("John", "Smith", 1, 1, true, NULL),
+    ("Benjamin", "Franklin", 2, 2, false, "John Smith"),
+    ("Jason", "Bourne", 3, 3, false, "John Smith");
 
 
 
