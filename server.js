@@ -20,3 +20,50 @@ const questions = [
         }
     ];
     
+    function init() {
+        inquirer.prompt(questions)
+        .then(function(data) {
+            if (data.firstPrompt === 'View All Employees') {
+                const sql = `SELECT * FROM employee`;
+                db.query(sql, (err, result) => {
+                    if (err) throw err;
+                    console.table(result);
+                    init();
+                });
+    
+            } else if (data.firstPrompt === 'Add Employee') {
+    
+    
+            } else if (data.firstPrompt === 'Update Employee Role') {
+    
+                
+            } else if (data.firstPrompt === 'View All Roles') {
+                const sql = `SELECT * FROM role`;
+                db.query(sql, (err, result) => {
+                    if (err) throw err;
+                    console.table(result);
+                    init();
+                });
+    
+            } else if (data.firstPrompt === 'Add Role') {
+    
+    
+            } else if (data.firstPrompt === 'View All Departments') {
+                const sql = `SELECT * FROM department`;
+                db.query(sql, (err, result) => {
+                    if (err) throw err;
+                    console.table(result);
+                    init();
+                });
+    
+    
+            } else if (data.firstPrompt === 'Add Department') {
+    
+    
+            } else if (data.firstPrompt === 'End Session') {
+                db.end();
+            }
+        })
+    }
+    
+    init();
